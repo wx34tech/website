@@ -1,0 +1,36 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的班级</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav role="navigation">
+        <img src="images/logo.jpg" alt="班级Logo" class="logo">
+        <div class="nav-buttons">
+            <a href="index.html">首页</a>
+            <a href="pages/gallery.html">班级相册</a>
+            <a href="pages/column.html">三思专栏</a>
+            <a href="pages/chatbot.html">访问智能体</a>
+            <a href="pages/auth.html">注册/登录</a>
+        </div>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <!-- 主图区 -->
+    <section class="main-image-container" aria-label="班级风采展示">
+        <img src="images/main.jpg" alt="班级全体成员合影" 
+             loading="lazy" 
+             width="1920" 
+             height="1080"
+             srcset="images/main-small.jpg 480w, images/main.jpg 1920w"
+             sizes="100vw">
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>

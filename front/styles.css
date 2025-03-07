@@ -1,0 +1,111 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '微软雅黑', sans-serif;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 30px;
+    transition: transform 0.3s;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.3s;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.nav-buttons a:hover {
+    background: #3498db;
+    color: white;
+}
+
+.nav-buttons a.active {
+    background: #2980b9;
+    color: white;
+}
+
+.main-image-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .nav-buttons {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        cursor: pointer;
+        padding: 15px;
+        font-size: 24px;
+    }
+
+    .main-image-container {
+        margin: 20px 0;
+    }
+    
+    .main-image-container img {
+        min-height: 250px;
+    }
+}
+
+@media (min-width: 769px) {
+    .main-image-container img {
+        max-height: 80vh;
+    }
+}
