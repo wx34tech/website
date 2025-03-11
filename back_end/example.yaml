@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: DeepSeek API代理服务
+  version: 1.0.0
+  description: 本服务提供对DeepSeek大模型API的安全代理访问
+
+servers:
+  - url: https://api.yourdomain.com/v1
+
+paths:
+  /chat:
+    post:
+      summary: 发送聊天请求
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: "量子计算的基本原理是什么？"
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                  default: 0.7
+                max_tokens:
+                  type: integer
+                  minimum: 100
+                  maximum: 1000
+                  default: 300
+      responses:
+        '200':
+          description: 成功响应
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '401':
+          description: 认证失败
+        '429':
+          description: 请求过多
+
+components:
+  schemas:
+    ChatResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "chat-abc123"
+        content:
+          type: string
+          example: "量子计算利用量子叠加态..."
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+              example: 20
+            completion_tokens:
+              type: integer
+              example: 150
